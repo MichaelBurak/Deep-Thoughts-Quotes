@@ -2,16 +2,16 @@ const passport = require('passport');
 const TwitterStrategy = require('passport-twitter').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
-const User = require('../models/User')
+const User = mongoose.model('users')
 
-//refactor to be more accurate to users
-
-passport.serializeUser(function (user, cb) {
-    cb(null, user);
+passport.serializeUser((user, cb) => {
+    cb(null, user.id);
 });
 
-passport.deserializeUser(function (obj, cb) {
-    cb(null, obj);
+passport.deserializeUser((id, cb) => {
+    User.findById(id).then(user => {
+        cb(null, user);
+    });
 });
 
 passport.use(new TwitterStrategy({
@@ -19,12 +19,12 @@ passport.use(new TwitterStrategy({
     consumerSecret: keys.consumerSecret,
     callbackURL: "http://127.0.0.1:5000/auth/callback"
 }, async (token, tokenSecret, profile, cb) => {
-    const existingUser = await User.findOne({ twitterId: profile.id });
+    const existingUser = await User.findOne({ screenName: profile.username });
 
     if (existingUser) {
         return cb(null, existingUser);
     }
 
-    const user = await new User({ twitterId: profile.id }).save();
+    const user = await new User({ screenName: profile.username }).save();
     return cb(null, user);
 }));
