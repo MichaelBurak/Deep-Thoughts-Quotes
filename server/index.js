@@ -4,9 +4,10 @@ const keys = require('./config/keys')
 const expressSession = require('express-session')
 const passport = require('passport')
 const bodyParser = require('body-parser')
+require('./models/User')
+
 require('./services/passport');
 
-require('./models/User')
 require('./models/Quote')
 require('./models/Submission')
 require('./models/Discourse')
