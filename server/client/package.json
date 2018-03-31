@@ -1,28 +1,35 @@
 {
-  "name": "client",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "ajv": "^6.4.0",
-    "axios": "^0.18.0",
-    "concurrently": "^3.5.1",
-    "node-sass-chokidar": "^1.2.2",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
-  },
-  "scripts": {
-    "build-css":
-      "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "start": "concurrently \"npm run watch-css\" \"react-scripts start\"",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+	"name": "client",
+	"version": "0.1.0",
+	"private": true,
+	"proxy": {
+		"/auth/*": {
+			"target": "http://127.0.0.1:5000/"
+		},
+		"/api/*": {
+			"target": "http://127.0.0.1:5000/"
+		}
+	},
+	"dependencies": {
+		"ajv": "^6.4.0",
+		"axios": "^0.18.0",
+		"concurrently": "^3.5.1",
+		"node-sass-chokidar": "^1.2.2",
+		"react": "^16.3.0",
+		"react-dom": "^16.3.0",
+		"react-redux": "^5.0.7",
+		"react-router-dom": "^4.2.2",
+		"react-scripts": "1.1.1",
+		"redux": "^3.7.2",
+		"redux-thunk": "^2.2.0"
+	},
+	"scripts": {
+		"build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+		"watch-css":
+			"npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+		"start": "concurrently \"npm run watch-css\" \"react-scripts start\"",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	}
 }
