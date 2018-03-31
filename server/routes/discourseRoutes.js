@@ -6,13 +6,14 @@ module.exports = app => {
         const tm = await TheDiscourse.find()
         res.send(tm)
     })
-    app.put('/api/thediscourse'), async (req, res) => {
-        //redirect?
-    }
-    app.delete('/api/thediscourse', (req, res) => {
-        TheDiscourse.find((discourse) => {
-            discourse.text = ''
-            discourse.save()
-        })
+    app.put('/api/thediscourse', async (req, res) => {
+        const { text } = req.body
+        const discord = await TheDiscourse.findOneAndUpdate({ text: { $exists: true } }, { text: text }, { new: true })
+        res.send(discord)
     })
+    app.put('/api/thediscourseclear', async (req, res) => {
+        const dis = await TheDiscourse.findOneAndUpdate({ text: { $exists: true } }, { text: '' }, { new: true })
+        res.send(dis)
+    })
+
 }
