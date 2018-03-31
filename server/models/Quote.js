@@ -6,4 +6,4 @@ const quoteSchema = new Schema({
     author: String
 })
 
-module.exports = quoteSchema
+mongoose.model('quotes', quoteSchema)
