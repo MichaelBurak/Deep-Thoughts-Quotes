@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     res.send({ helloWorld: "Hello Employers, I know MERN" })
 })
 
-require('./routes/textRoutes')(app)
+require('./routes/quoteRoutes')(app)
 require('./routes/submissionRoutes')(app)
 require('./routes/discourseRoutes')(app)
 
