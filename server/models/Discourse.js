@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const discourseSchema = new Schema({
-    text: String
+    text: { type: String, maxlength: 140 }
 })
 
 module.exports = discourseSchema
