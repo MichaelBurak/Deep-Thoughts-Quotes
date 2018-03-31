@@ -1,14 +1,28 @@
-import React from "react";
+import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import '../styles/App.css';
 
-const App = () => {
-  return (
-    <div>
-      <p>
-        MEEERN
-        <h1>Different size text. </h1>
-      </p>
-    </div>
-  );
-};
+import Header from './Header';
 
-export default App;
+class App extends Component {
+	componentDidMount() {
+		this.props.fetchQuote();
+		this.props.fetchUser();
+	}
+
+	render() {
+		return (
+			<div className="container">
+				<BrowserRouter>
+					<div>
+						<Header />
+					</div>
+				</BrowserRouter>
+			</div>
+		);
+	}
+}
+
+export default connect(null, actions)(App);
