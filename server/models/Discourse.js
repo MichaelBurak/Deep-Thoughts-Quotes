@@ -5,4 +5,4 @@ const discourseSchema = new Schema({
     text: { type: String, maxlength: 140 }
 }, { capped: 200 })
 
-mongoose.model('discourse', discourseSchema)
+mongoose.model('discourses', discourseSchema)
