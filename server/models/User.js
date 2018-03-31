@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-    screenName: String
+  screenName: String
 });
 
-mongoose.model('users', userSchema);
+mongoose.model("users", userSchema);
