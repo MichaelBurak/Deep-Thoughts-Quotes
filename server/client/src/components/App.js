@@ -5,6 +5,7 @@ import * as actions from '../actions';
 import '../styles/App.css';
 
 import Header from './Header';
+import DisplayedQuote from './DisplayedQuote';
 
 class App extends Component {
 	componentDidMount() {
@@ -18,6 +19,7 @@ class App extends Component {
 				<BrowserRouter>
 					<div>
 						<Header />
+						<DisplayedQuote />
 					</div>
 				</BrowserRouter>
 			</div>

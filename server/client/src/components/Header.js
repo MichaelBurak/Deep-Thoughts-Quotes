@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
 	return (
-		<div style={{ textAlign: 'center' }}>
+		<div className="header">
 			<h1> Welcome To Deep Thoughts </h1>
 		</div>
 	);
