@@ -6,8 +6,8 @@ module.exports = app => {
         const { text, author } = req.body
 
         const submission = new Submission({
-            title,
-            body
+            text,
+            author
             //_user: req.user.handle?
         });
 
