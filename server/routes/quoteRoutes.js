@@ -10,4 +10,8 @@ module.exports = app => {
                 res.send(resp)
             })
     })
+    app.get('/api/quotes/:author', async (req, res) => {
+        const selected = await Quote.where('author').equals(req.params.author)
+        res.send(selected)
+    })
 }
