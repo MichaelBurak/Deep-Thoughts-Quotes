@@ -1,29 +1,30 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import '../styles/App.css';
+// import '../styles/App.css';
 
 import Header from './Header';
 import DisplayedQuote from './DisplayedQuote';
 import SubmissionFormContainer from './SubmissionFormContainer';
+import AuthorQuotesContainer from './AuthorQuotesContainer';
+import DiscourseContainer from './DiscourseContainer';
+// import TwitterAuth from './TwitterAuth';
 
-class App extends Component {
+class App extends React.Component {
 	componentDidMount() {
 		this.props.fetchQuote();
-		this.props.fetchUser();
+		this.props.fetchDiscourse();
+		//this.props.fetchUser();
 	}
 
 	render() {
 		return (
 			<div className="container">
-				<BrowserRouter>
-					<div>
-						<Header />
-						<DisplayedQuote />
-						<SubmissionFormContainer />
-					</div>
-				</BrowserRouter>
+				<Header />
+				<DisplayedQuote />
+				<SubmissionFormContainer />
+				<AuthorQuotesContainer />
+				<DiscourseContainer />
 			</div>
 		);
 	}
