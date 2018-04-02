@@ -13,9 +13,12 @@
 	"dependencies": {
 		"ajv": "^6.4.0",
 		"axios": "^0.18.0",
+		"bootstrap": "^4.0.0",
 		"clipboard": "^2.0.0",
 		"concurrently": "^3.5.1",
+		"jquery": "^3.3.1",
 		"node-sass-chokidar": "^1.2.2",
+		"popper.js": "^1.14.1",
 		"react": "^16.3.0",
 		"react-dom": "^16.3.0",
 		"react-portal": "^4.1.4",
@@ -28,8 +31,7 @@
 	},
 	"scripts": {
 		"build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-		"watch-css":
-			"npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+		"watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
 		"start": "concurrently \"npm run watch-css\" \"react-scripts start\"",
 		"build": "react-scripts build",
 		"test": "react-scripts test --env=jsdom",
