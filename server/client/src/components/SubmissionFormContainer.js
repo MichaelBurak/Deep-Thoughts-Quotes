@@ -1,11 +1,9 @@
+import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class SubmissionFormContainer extends React.Component {
-	// Constructor sets initial state of form values to empty strings and takes in
-	// props.
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -14,29 +12,29 @@ class SubmissionFormContainer extends React.Component {
 		};
 	}
 
-	//onChange event to handle form input into state change.
-
 	handleChange = e => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 
 	submitForm(e) {
-		const values = this.state;
-		console.log(values);
 		e.preventDefault();
-		//SubmissionHandler action
+		axios
+			.post('/api/submissions', { text: this.state.text, author: this.state.author })
+			.then(alert('Congrats, you are a pope! https://en.wikipedia.org/wiki/Discordianism'))
+			.then(this.setState({ text: '', author: '' }));
 	}
 
 	render() {
 		return (
-			<div>
+			<div id="submissionform">
 				<form onSubmit={e => this.submitForm(e)}>
 					<h5>Submit A Quote For Consideration By Your Benevolent Overlords!</h5>
 					Quote:<br />
 					<textarea
+						className="submisField"
 						rows="10"
 						cols="25"
-						maxlength="2000"
+						maxLength="2000"
 						name="text"
 						value={this.state.text}
 						onChange={this.handleChange}
@@ -45,14 +43,18 @@ class SubmissionFormContainer extends React.Component {
 					<br />
 					Author Name:<br />
 					<input
+						className="submisField"
 						type="text"
 						name="author"
-						maxlength="140"
+						maxLength="140"
 						value={this.state.author}
 						onChange={this.handleChange}
 						required
 					/>
-					<button>Submit</button>
+					<br />
+					<button id="submisBtn" className="button">
+						Submit
+					</button>
 				</form>
 			</div>
 		);
