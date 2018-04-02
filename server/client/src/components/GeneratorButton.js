@@ -1,14 +1,17 @@
 import React from 'react';
 
-const GeneratorButton = ({ fetchQuote }) => {
+const GeneratorButton = ({ fetchQuote, currentQuote }) => {
 	const quoteGen = () => {
-		fetchQuote();
+		fetchQuote(currentQuote);
 	};
 
 	return (
-		<button id="genbtn" onClick={quoteGen}>
-			Generate Quote
-		</button>
+		<div>
+			<button id="genBtn" className="button" onClick={quoteGen}>
+				Generate A Quote
+			</button>
+			<br />
+		</div>
 	);
 };
 
