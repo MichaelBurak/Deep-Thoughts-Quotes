@@ -1,7 +1,106 @@
-.header {
+body {
+	color: lightgray;
+	background-color: black;
+}
+
+a {
+	color: lightslategray;
+}
+
+#sidebar {
+	height: 80%; /* Full-height: remove this if you want "auto" height */
+	width: 300px; /* Set the width of the sidebar */
+	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+	left: 0;
+	opacity: 0.7;
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 20px;
+	ul {
+		font-family: Helvetica, sans-serif;
+		font-style: italic;
+		font-weight: 600;
+	}
+}
+
+#header {
+	top: 0;
 	text-align: center;
 }
 
 #mainQuote {
+	h3 {
+		font-family: Helvetica, sans-serif;
+		font-style: italic;
+		font-weight: 600;
+	}
 	text-align: center;
 }
+
+#submissionform {
+	text-align: center;
+}
+
+#genBtn {
+	border: 5px solid;
+	border-radius: 10px;
+}
+
+#topRight {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-top: 20px;
+}
+
+#submisBtn {
+	position: relative;
+	top: 10px;
+}
+
+#discourse {
+	position: fixed; /* Sit on top of the page content */
+	width: 100%; /* Full width (cover the whole page) */
+	height: 100%; /* Full height (cover the whole page) */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+	z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+	text-align: center;
+}
+
+#discourseEntry {
+	position: absolute;
+	bottom: 0;
+	button {
+		background-color: lightslategray;
+		color: lightgray;
+		border-radius: 10px;
+		font-size: 12px;
+		opacity: 0.9;
+		font-style: bold;
+		font-weight: 600;
+	}
+}
+
+.submisField {
+	background-color: lightgray;
+	border: 2px solid olive;
+	opacity: 0.6;
+}
+
+.button {
+	background-color: lightslategray;
+	color: lightgray;
+	border: 5em;
+	border-radius: 10px;
+	padding: 15px 32px;
+	text-align: center;
+	font-size: 12px;
+	opacity: 0.9;
+}
+
+//prime to make that text-align and clear variables/mixins
