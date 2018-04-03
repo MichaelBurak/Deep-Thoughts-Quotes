@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 const GeneratorButton = ({ fetchQuote, currentQuote }) => {
 	const quoteGen = () => {
@@ -7,9 +8,10 @@ const GeneratorButton = ({ fetchQuote, currentQuote }) => {
 
 	return (
 		<div>
-			<button id="genBtn" className="button" onClick={quoteGen}>
+			<Button id="genBtn" className="button" onClick={quoteGen}>
 				Generate A Quote
-			</button>
+			</Button>
+			<br />
 			<br />
 		</div>
 	);
