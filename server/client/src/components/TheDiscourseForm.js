@@ -41,7 +41,7 @@ class TheDiscourseForm extends React.Component {
 						name="text"
 						value={this.state.text}
 						onChange={this.handleChange}
-						maxLength="10"
+						maxLength="140"
 					/>
 
 					<br />
