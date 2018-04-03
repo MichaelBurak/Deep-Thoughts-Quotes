@@ -42,7 +42,7 @@ class AuthorQuotesContainer extends React.Component {
 									}}
 								>
 									<CardText style={{ color: '#555555', wordWrap: 'break-word' }}>
-										"{quote.text}", author: {quote.author}
+										"{quote.text}" <br /> Author: {quote.author}
 									</CardText>
 								</Card>
 							);
