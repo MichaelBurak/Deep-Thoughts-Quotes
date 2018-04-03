@@ -2,18 +2,13 @@ import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import PopeAlert from './PopeAlert';
 import { Button, Fade } from 'reactstrap';
-import { Form, Label, Input, FormText } from 'reactstrap';
+import { Form, Label, Input, FormText, Modal, ModalBody, Alert } from 'reactstrap';
 
 class SubmissionFormContainer extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			text: '',
-			author: '',
-			fadeIn: false,
-		};
+		this.state = { text: '', author: '', fadeIn: false, visible: false, modal: false };
 	}
 
 	handleChange = e => {
@@ -31,13 +26,27 @@ class SubmissionFormContainer extends React.Component {
 	toggle = () => {
 		this.setState({
 			fadeIn: !this.state.fadeIn,
+			modal: !this.state.modal,
+			visible: !this.state.visible,
 		});
 	};
 
 	render() {
 		return (
 			<div id="submissionform">
-				<Fade in={this.state.fadeIn} tag={PopeAlert} className="mt-3" mountOnEnter={false} />
+				<Fade in={this.state.fadeIn} className="mt-3" mountOnEnter={false}>
+					<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+						<ModalBody>
+							<Alert color="dark" isOpen={this.state.visible} toggle={this.toggle}>
+								<h4> You are now a pope!</h4>
+								<hr />
+								<a style={{ color: '#555' }} href="https://en.wikipedia.org/wiki/Discordianism">
+									Get your pope card!
+								</a>
+							</Alert>
+						</ModalBody>
+					</Modal>
+				</Fade>
 				<Form onSubmit={e => this.submitForm(e)}>
 					<FormText>
 						<h5>Submit A Quote For Consideration By Your Benevolent Overlords!</h5>
@@ -56,6 +65,7 @@ class SubmissionFormContainer extends React.Component {
 					<br />
 					<Button> Submit </Button>
 				</Form>
+				<Button onClick={this.toggle}>Please die</Button>
 				<br />
 			</div>
 		);
