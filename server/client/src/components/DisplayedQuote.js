@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GeneratorButton from './GeneratorButton';
 import { fetchQuote } from '../actions';
+import { Jumbotron, Card, CardBody, Button } from 'reactstrap';
 
 class DisplayedQuote extends React.Component {
 	handleClick = () => {
@@ -17,14 +18,20 @@ class DisplayedQuote extends React.Component {
 	render() {
 		return (
 			<div id="mainQuote" className="center">
-				<h3 id="mainQuoteText">"{this.props.quote.text}"</h3>
-				<br />
-				<h3> Author: {this.props.quote.author} </h3>
-				<br />
-				<GeneratorButton currentQuote={this.props.quote.text} fetchQuote={this.props.fetchQuote} />
-				<button id="clipboardBtn" className="button" onClick={this.handleClick}>
-					Copy to Clipboard
-				</button>
+				<Jumbotron>
+					<Card>
+						<CardBody>
+							<h1 id="mainQuoteText">"{this.props.quote.text}"</h1>
+							<hr />
+							<h2> Author: {this.props.quote.author} </h2>
+							<br />
+							<GeneratorButton currentQuote={this.props.quote.text} fetchQuote={this.props.fetchQuote} />
+							<Button id="clipboardBtn" className="button" onClick={this.handleClick}>
+								Copy to Clipboard
+							</Button>
+						</CardBody>
+					</Card>
+				</Jumbotron>
 			</div>
 		);
 	}
