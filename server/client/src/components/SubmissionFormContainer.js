@@ -52,7 +52,14 @@ class SubmissionFormContainer extends React.Component {
 						<h5>Submit A Quote For Consideration By Your Benevolent Overlords!</h5>
 					</FormText>
 					<Label for="text">Quote:</Label>
-					<Input type="textarea" name="text" id="text" value={this.state.text} onChange={this.handleChange} />
+					<Input
+						type="textarea"
+						name="text"
+						id="text"
+						value={this.state.text}
+						onChange={this.handleChange}
+						maxLength="2000"
+					/>
 					<Label for="author">Author:</Label>
 					<Input
 						type="textarea"
@@ -60,6 +67,7 @@ class SubmissionFormContainer extends React.Component {
 						id="author"
 						value={this.state.author}
 						onChange={this.handleChange}
+						maxLength="140"
 						required
 					/>
 					<br />

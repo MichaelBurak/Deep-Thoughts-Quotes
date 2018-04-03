@@ -36,7 +36,13 @@ class TheDiscourseForm extends React.Component {
 				<Form onSubmit={e => this.submitForm(e)}>
 					<FormText>The Discourse</FormText>
 					<Label for="text">"Effect" "The Discourse" "Scare Quotes" </Label>
-					<Input type="textarea" name="text" value={this.state.text} onChange={this.handleChange} />
+					<Input
+						type="textarea"
+						name="text"
+						value={this.state.text}
+						onChange={this.handleChange}
+						maxLength="10"
+					/>
 
 					<br />
 					<Button id="discBtn">Set the tone of The Discourse</Button>
