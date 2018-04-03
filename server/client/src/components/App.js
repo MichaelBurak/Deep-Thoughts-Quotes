@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { Container, Row, Col } from 'reactstrap';
 // import '../styles/App.css';
 
 import Header from './Header';
@@ -19,13 +20,23 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="container">
-				<Header />
+			<Container>
+				<Col xl="auto" md={{ size: 8, offset: 3 }}>
+					<Header />
+				</Col>
 				<DisplayedQuote />
-				<SubmissionFormContainer />
-				<AuthorQuotesContainer />
-				<DiscourseContainer />
-			</div>
+				<Row>
+					<Col xs="7">
+						<SubmissionFormContainer />
+					</Col>
+					<Col xs={{ size: 4, offset: 1 }}>
+						<AuthorQuotesContainer />
+					</Col>
+				</Row>
+				<Col sm={{ offset: 5 }}>
+					<DiscourseContainer />
+				</Col>
+			</Container>
 		);
 	}
 }
