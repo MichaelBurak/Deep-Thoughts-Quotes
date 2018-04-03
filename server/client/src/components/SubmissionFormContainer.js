@@ -2,6 +2,9 @@ import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import PopeAlert from './PopeAlert';
+import { Button, Fade } from 'reactstrap';
+import { Form, Label, Input, FormText } from 'reactstrap';
 
 class SubmissionFormContainer extends React.Component {
 	constructor(props) {
@@ -9,6 +12,7 @@ class SubmissionFormContainer extends React.Component {
 		this.state = {
 			text: '',
 			author: '',
+			fadeIn: false,
 		};
 	}
 
@@ -20,42 +24,39 @@ class SubmissionFormContainer extends React.Component {
 		e.preventDefault();
 		axios
 			.post('/api/submissions', { text: this.state.text, author: this.state.author })
-			.then(alert('Congrats, you are a pope! https://en.wikipedia.org/wiki/Discordianism'))
+			.then(this.toggle())
 			.then(this.setState({ text: '', author: '' }));
 	}
+
+	toggle = () => {
+		this.setState({
+			fadeIn: !this.state.fadeIn,
+		});
+	};
 
 	render() {
 		return (
 			<div id="submissionform">
-				<form onSubmit={e => this.submitForm(e)}>
-					<h5>Submit A Quote For Consideration By Your Benevolent Overlords!</h5>
-					Quote:<br />
-					<textarea
-						className="submisField"
-						rows="10"
-						cols="25"
-						maxLength="2000"
-						name="text"
-						value={this.state.text}
-						onChange={this.handleChange}
-						required
-					/>
-					<br />
-					Author Name:<br />
-					<input
-						className="submisField"
-						type="text"
+				<Fade in={this.state.fadeIn} tag={PopeAlert} className="mt-3" mountOnEnter={false} />
+				<Form onSubmit={e => this.submitForm(e)}>
+					<FormText>
+						<h5>Submit A Quote For Consideration By Your Benevolent Overlords!</h5>
+					</FormText>
+					<Label for="text">Quote:</Label>
+					<Input type="textarea" name="text" id="text" value={this.state.text} onChange={this.handleChange} />
+					<Label for="author">Author:</Label>
+					<Input
+						type="textarea"
 						name="author"
-						maxLength="140"
+						id="author"
 						value={this.state.author}
 						onChange={this.handleChange}
 						required
 					/>
 					<br />
-					<button id="submisBtn" className="button">
-						Submit
-					</button>
-				</form>
+					<Button> Submit </Button>
+				</Form>
+				<br />
 			</div>
 		);
 	}
