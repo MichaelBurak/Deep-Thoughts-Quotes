@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { Button, Form, FormText, Label, Input } from 'reactstrap';
 
 class TheDiscourseForm extends React.Component {
 	constructor(props) {
@@ -26,29 +27,22 @@ class TheDiscourseForm extends React.Component {
 
 	handleClear() {
 		this.props.clearDiscourse();
+		this.setState({ text: '' });
 	}
 
 	render() {
 		return (
 			<div id="discourse">
-				<p>The Discourse </p>
-				<br />
-				<form onSubmit={e => this.submitForm(e)}>
-					"Effect the discourse"
-					<textarea
-						className="discourseField"
-						rows="10"
-						cols="25"
-						maxlength="2000"
-						name="text"
-						value={this.state.text}
-						onChange={this.handleChange}
-						required
-					/>
+				<Form onSubmit={e => this.submitForm(e)}>
+					<FormText>The Discourse</FormText>
+					<Label for="text">"Effect" "The Discourse" "Scare Quotes" </Label>
+					<Input type="textarea" name="text" value={this.state.text} onChange={this.handleChange} />
+
 					<br />
-					<button id="discBtn">Submit To The Discourse</button>
-				</form>
-				<button onClick={e => this.handleClear(e)}>Clear The Room </button>
+					<Button id="discBtn">Submit To The Discourse</Button>
+				</Form>
+				<br />
+				<Button onClick={e => this.handleClear(e)}>Clear The Room </Button>
 			</div>
 		);
 	}
