@@ -43,10 +43,6 @@ app.use(bodyParser.json());
 // app.use(passport.initialize());
 // app.use(passport.session());
 
-app.get('/', (req, res) => {
-	res.send({ helloWorld: 'Hello Employers, I know MERN' });
-});
-
 app.use(bodyParser.json());
 
 //require('./routes/authRoutes');(app)
