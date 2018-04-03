@@ -39,10 +39,10 @@ class TheDiscourseForm extends React.Component {
 					<Input type="textarea" name="text" value={this.state.text} onChange={this.handleChange} />
 
 					<br />
-					<Button id="discBtn">Submit To The Discourse</Button>
+					<Button id="discBtn">Set the tone of The Discourse</Button>
 				</Form>
 				<br />
-				<Button onClick={e => this.handleClear(e)}>Clear The Room </Button>
+				<Button onClick={e => this.handleClear(e)}>Invoke Godwin's Law </Button>
 			</div>
 		);
 	}
