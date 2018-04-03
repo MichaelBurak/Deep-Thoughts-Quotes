@@ -1,26 +1,53 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchAuthQuotes } from '../actions';
+import { Collapse, Button, CardText, Card } from 'reactstrap';
 
 class AuthorQuotesContainer extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			collapse: false,
+		};
+	}
+
+	toggle = () => {
+		this.setState({ collapse: !this.state.collapse });
+	};
+
 	handleClick = () => {
 		this.props.fetchAuthQuotes(this.props.quote.author);
+		this.toggle();
 	};
 
 	render() {
 		return (
 			<div id="sidebar">
-				<button id="authQBtn" onClick={this.handleClick}>
+				<Button id="authQBtn" onClick={this.handleClick}>
 					See all of the current author's quotes.
-				</button>
+				</Button>
+				<br />
+				<br />
 				<ul>
-					{this.props.authQuotes.map((quote, i) => {
-						return (
-							<li key={i}>
-								"{quote.text}", author: {quote.author}
-							</li>
-						);
-					})}
+					<Collapse isOpen={this.state.collapse}>
+						{this.props.authQuotes.map((quote, i) => {
+							return (
+								<Card
+									body
+									inverse
+									style={{
+										overflow: 'hidden',
+										backgroundColor: '#d6d8d9',
+										borderColor: '#c6c8ca',
+									}}
+								>
+									<CardText style={{ color: '#555555', wordWrap: 'break-word' }}>
+										"{quote.text}", author: {quote.author}
+									</CardText>
+								</Card>
+							);
+						})}
+					</Collapse>
 				</ul>
 			</div>
 		);
