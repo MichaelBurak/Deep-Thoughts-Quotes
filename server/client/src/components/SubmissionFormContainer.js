@@ -65,8 +65,6 @@ class SubmissionFormContainer extends React.Component {
 					<br />
 					<Button> Submit </Button>
 				</Form>
-				<Button onClick={this.toggle}>Please die</Button>
-				<br />
 			</div>
 		);
 	}
