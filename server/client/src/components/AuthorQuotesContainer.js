@@ -33,6 +33,7 @@ class AuthorQuotesContainer extends React.Component {
 						{this.props.authQuotes.map((quote, i) => {
 							return (
 								<Card
+									key={i}
 									body
 									inverse
 									style={{
