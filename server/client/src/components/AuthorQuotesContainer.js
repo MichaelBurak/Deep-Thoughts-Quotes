@@ -32,20 +32,15 @@ class AuthorQuotesContainer extends React.Component {
 					<Collapse isOpen={this.state.collapse}>
 						{this.props.authQuotes.map((quote, i) => {
 							return (
-								<Card
+								<div
 									key={i}
-									body
-									inverse
-									style={{
-										overflow: 'hidden',
-										backgroundColor: '#d6d8d9',
-										borderColor: '#c6c8ca',
-									}}
+									style={{ overflow: 'hidden', backgroundColor: '#d6d8d9', borderColor: '#c6c8ca' }}
 								>
-									<CardText style={{ color: '#555555', wordWrap: 'break-word' }}>
+									<p style={{ color: '#555555', wordWrap: 'break-word' }}>
 										"{quote.text}" <br /> Author: {quote.author}
-									</CardText>
-								</Card>
+										<hr />
+									</p>
+								</div>
 							);
 						})}
 					</Collapse>
