@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchAuthQuotes } from '../actions';
-import { Collapse, Button, CardText, Card } from 'reactstrap';
+import { Collapse, Button } from 'reactstrap';
 
 class AuthorQuotesContainer extends React.Component {
 	constructor(props) {
