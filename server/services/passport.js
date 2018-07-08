@@ -1,3 +1,25 @@
+//not yet implemented
+// var passport = require('passport'),
+// 	mongoose = require('mongoose');
+// (TwitterTokenStrategy = require('passport-twitter-token')), (User = mongoose.model('users'));
+
+// module.exports = function() {
+// 	passport.use(
+// 		new TwitterTokenStrategy(
+// 			{
+// 				consumerKey: 'KEY',
+// 				consumerSecret: 'SECRET',
+// 				includeEmail: true,
+// 			},
+// 			function(token, tokenSecret, profile, done) {
+// 				User.upsertTwitterUser(token, tokenSecret, profile, function(err, user) {
+// 					return done(err, user);
+// 				});
+// 			}
+// 		)
+// 	);
+// };
+
 // const passport = require("passport");
 // const TwitterStrategy = require("passport-twitter").Strategy;
 // const mongoose = require("mongoose");
