@@ -1,5 +1,3 @@
-![Logo of the project]
-
 # Deep Thoughts Quotes
 
 > Thinking deep, having fun(with data!)
