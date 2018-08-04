@@ -7,9 +7,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "nodemon index.js",
     "server": "nodemon index.js",
-    "client": "npm run start --prefix client",
+    "client": "npm run start --prefix server/client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix server/client && npm run build --prefix server/client"
   },
